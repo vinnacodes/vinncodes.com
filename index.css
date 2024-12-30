@@ -183,4 +183,8 @@ body {
     max-width: 400px; /* Ensures the To-Do app stays compact */
     width: 100%;
   }
-  
+  .contacts li{
+
+
+    display: inline;
+  }
