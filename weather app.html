@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+      }
+      h1 {
+        font-size: 18px;
+      }
+
+      .card {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        left: 36%;
+        top: 60px;
+        border: 2px solid rgb(102, 100, 100);
+        padding: 20px;
+        border-radius: 15px;
+        background-image: linear-gradient(to bottom right ,rgb(52, 204, 186),rgb(188, 118, 75) ,rgb(228, 197, 18));
+        box-shadow: 0 0 10px ;
+        
+      }
+      input{
+       width: 80%;
+       height:30px;
+       border-radius: 10px;
+       padding-right: 4px;
+       background-color: rgb(244, 242, 240);
+       border: 1px solid rgb(9, 9, 10);
+       box-shadow: 0 0 7px rgb(95, 104, 164);
+
+      }
+      input :focus{
+        padding-left:10px;
+        background-color: rgb(153, 153, 225);
+      }
+      .Search{
+        margin-top:20px;
+        display: flex;
+        justify-content: space-between;
+        
+      }
+      
+      i{
+margin-top: 20px;
+      }
+      .details{
+        display: flex;
+        margin-top:40px;
+      }
+      #sun{
+
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="search">
+        <input type="text" name="area" id="area" placeholder="Enter a city  name" />
+        <i class="fa-duotone fa-solid fa-magnifying-glass" id="sun"></i>
+      </div>
+      <div class="temperature">
+        <i class="fas fa-sun"></i>
+        
+        <h1 class="temp">21° C</h1>
+      </div>
+      <div class="details">
+        <div class="humidity">
+          <h1>30% Humidity</h1>
+        </div>
+        <div class="wind">
+          <h1>22 kmph wind speed</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
