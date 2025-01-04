@@ -47,6 +47,7 @@ body {
     background-image: url(images/bgh.jpg);
     background-size: cover;
     background-position: center;
+    box-shadow: -3 0 10px rgb(rgb(198, 194, 194), rgb(178, 185, 178), rgb(220, 220, 221))
   }
   
   .header-text {
