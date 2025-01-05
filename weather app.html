@@ -96,7 +96,7 @@ margin-top: 20px;
           <h1>30% </h1><p>Humidity</p>
         </div>
         <div class="wind">
-          <h1>22 mph </h1> <p>wind speed</p>
+          <h1 class="hvalue">22 mph </h1> <p>wind speed</p>
         </div>
       </div>
     </div>
@@ -105,19 +105,22 @@ margin-top: 20px;
     const apikey = "0690dcc908669d58658121d42ecf6922";
      const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
-     let city = document.querySelector("#area").value
+     
      let btn =document.querySelector("#btn")
+
      let temp =document.querySelector(".temp")
+     let Humidity =document.querySelector(".hvalue")
      
 btn.addEventListener("click",checkweather)
 
       async function checkweather(){
+        let city = document.querySelector("#area").value
         const response = await fetch(apiUrl +`&appid=${apikey}`+`&q=${city}`);
         var data = await response.json()
 
       console.log(data);
    temp.innerHTML= Math.round(data.main.temp)+`°C`}
-
+  Humidity.innerHTML=data.main.humidity +"%";
 
       checkweather(); 
       
