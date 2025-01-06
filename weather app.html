@@ -38,25 +38,33 @@
        background-color: rgb(244, 242, 240);
        border: 1px solid rgb(9, 9, 10);
        box-shadow: 0 0 7px rgb(95, 104, 164);
+       font-family: Verdana, Geneva, Tahoma, sans-serif;
 
       }
-      input :focus{
-        padding-left:10px;
-        background-color: rgb(153, 153, 225);
+
+      input {
+        padding: 0 0 0 10px;
+        
       }
       .Search{
         margin-top:20px;
         display: flex;
-        justify-content: space-between;
+        justify-content:center;
         
       }
+
       
+      .temperature{
+        display: flex;
+        justify-content: space-around;
+
+      }
       i{
 margin-top: 20px;
       }
       .details{
         display: flex;
-        margin-top:40px;
+        margin-top:20px;
         
 
       }
@@ -76,6 +84,24 @@ margin-top: 20px;
       ;
       left: 40px;
     }
+    .wicon{
+      position: relative
+      ;
+      top: 20px;
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(0 0 7px rgb(61, 60, 60));
+    }
+    #btn{
+    padding-left: 20px;
+    color: rgb(170, 202, 202);
+
+    }
+    #btn:hover{
+      filter: drop-shadow(0 0 10px rgb(183, 198, 206));
+      color: rgb(231, 232, 234);
+    }
+    #btn:click{}
     </style>
   </head>
 
@@ -87,7 +113,7 @@ margin-top: 20px;
         class="fa-duotone fa-solid fa-magnifying-glass" id="sun"></i>
       </div>
       <div class="temperature">
-        <img src="images/weather/weather-app(1).png" >
+        <img class="wicon" src="images/weather/weather-app(1).png" width="50px"  height="50px">
         
         <h1 class="temp">21°C</h1>
       </div>
