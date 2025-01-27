@@ -305,3 +305,10 @@ body {
       }
     }
   }
+/* responsvie design using media queries */
+@media(max-width:600px){
+
+  *{font-size: small;}
+}
+
+

@@ -3,157 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather app</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
       body {
         background-color: rgb(0, 0, 0);
         color: white;
-        font-family: poppins, Geneva, Tahoma, sans-serif;
+        font-family: Poppins, Geneva, Tahoma, sans-serif;
         font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
       }
-      h1 {
-        font-size: 18px;
-      }
-
       .card {
         width: 300px;
-        height: 250px;
-        position: relative;
-        left: 36%;
-        top: 60px;
         border: 2px solid rgb(102, 100, 100);
         padding: 20px;
         border-radius: 15px;
-        background-image: linear-gradient(to bottom right ,rgb(52, 204, 186),rgb(67, 155, 134) ,rgb(198, 197, 97));
-        box-shadow: 0 0 10px ;
-        
+        background-image: linear-gradient(
+          to bottom right,
+          rgb(52, 204, 186),
+          rgb(67, 155, 134),
+          rgb(198, 197, 97)
+        );
+        box-shadow: 0 0 10px;
       }
-      input{
-       width: 80%;
-       height:30px;
-       border-radius: 10px;
-       padding-right: 4px;
-       background-color: rgb(244, 242, 240);
-       border: 1px solid rgb(9, 9, 10);
-       box-shadow: 0 0 7px rgb(95, 104, 164);
-       font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-      }
-
       input {
-        padding: 0 0 0 10px;
-        
+        width: 80%;
+        height: 30px;
+        border-radius: 10px;
+        padding: 0 10px;
+        background-color: rgb(244, 242, 240);
+        border: 1px solid rgb(9, 9, 10);
+        box-shadow: 0 0 7px rgb(95, 104, 164);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-right: 10px;
       }
-      .Search{
-        margin-top:20px;
+      .search {
+        margin-top: 20px;
         display: flex;
-        justify-content:center;
-        
+        justify-content: center;
       }
-
-      
-      .temperature{
+      .temperature {
         display: flex;
         justify-content: space-around;
-
+        margin-top: 20px;
       }
-      i{
-margin-top: 20px;
-      }
-      .details{
-        display: flex;
-        margin-top:20px;
-        
-
-      }
-      .details h1{
-     
-      }
-      #sun{
-
-      }
-      .temp{
+      .temp {
         font-size: 2.5em;
-        
       }
-      .wind
-    {
-      position: relative
-      ;
-      left: 40px;
-    }
-    .wicon{
-      position: relative
-      ;
-      top: 20px;
-      width: 60px;
-      height: 60px;
-      filter: drop-shadow(0 0 7px rgb(61, 60, 60));
-    }
-    #btn{
-    padding-left: 20px;
-    color: rgb(170, 202, 202);
-
-    }
-    #btn:hover{
-      filter: drop-shadow(0 0 10px rgb(183, 198, 206));
-      color: rgb(231, 232, 234);
-    }
-    #btn:click{}
+      .details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      .humidity,
+      .wind {
+        text-align: center;
+      }
+      .wicon {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 0 7px rgb(61, 60, 60));
+      }
+      #btn {
+        color: rgb(170, 202, 202);
+        cursor: pointer;
+      }
+      #btn:hover {
+        filter: drop-shadow(0 0 10px rgb(183, 198, 206));
+        color: rgb(231, 232, 234);
+      }
     </style>
   </head>
-
   <body>
     <div class="card">
       <div class="search">
-        <input type="text" name="area" id="area" placeholder="Enter a city  name" />
-        <i  id="btn"
-        class="fa-duotone fa-solid fa-magnifying-glass" id="sun"></i>
+        <input
+          type="text"
+          name="area"
+          id="area"
+          placeholder="Enter a city name"
+        />
+        <i class="fas fa-magnifying-glass" id="btn"></i>
       </div>
       <div class="temperature">
-        <img class="wicon" src="images/weather/weather-app(1).png" width="50px"  height="50px">
-        
-        <h1 class="temp">21°C</h1>
+        <img
+          class="wicon"
+          src="https://openweathermap.org/img/wn/10d.png"
+          alt="weather-icon"
+        />
+        <h1 class="temp">--°C</h1>
       </div>
       <div class="details">
         <div class="humidity">
-          <h1>30% </h1><p>Humidity</p>
+          <h1 class="hvalue">--%</h1>
+          <p>Humidity</p>
         </div>
         <div class="wind">
-          <h1 class="hvalue">22 mph </h1> <p>wind speed</p>
+          <h1 class="wvalue">-- mph</h1>
+          <p>Wind Speed</p>
         </div>
       </div>
     </div>
 
     <script>
-    const apikey = "0690dcc908669d58658121d42ecf6922";
-     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+      const apikey = "0690dcc908669d58658121d42ecf6922";
+      const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
-     
-     let btn =document.querySelector("#btn")
+      const btn = document.querySelector("#btn");
+      const temp = document.querySelector(".temp");
+      const humidity = document.querySelector(".hvalue");
+      const wind = document.querySelector(".wvalue");
+      const weatherIcon = document.querySelector(".wicon");
 
-     let temp =document.querySelector(".temp")
-     let Humidity =document.querySelector(".hvalue")
-     
-btn.addEventListener("click",checkweather)
+      async function checkWeather() {
+        const city = document.querySelector("#area").value.trim();
+        if (city === "") {
+          alert("Please enter a city name!");
+          return;
+        }
 
-      async function checkweather(){
-        let city = document.querySelector("#area").value
-        const response = await fetch(apiUrl +`&appid=${apikey}`+`&q=${city}`);
-        var data = await response.json()
+        try {
+          const response = await fetch(`${apiUrl}&appid=${apikey}&q=${city}`);
+          if (!response.ok) {
+            throw new Error("City not found!");
+          }
+          const data = await response.json();
 
-      console.log(data);
-   temp.innerHTML= Math.round(data.main.temp)+`°C`}
-  Humidity.innerHTML=data.main.humidity +"%";
+          // Update DOM with weather data
+          temp.innerHTML = Math.round(data.main.temp) + "°C";
+          humidity.innerHTML = data.main.humidity + "%";
+          wind.innerHTML = Math.round(data.wind.speed) + " mph";
+          weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+          weatherIcon.alt = data.weather[0].description;
+        } catch (error) {
+          alert(error.message);
+        }
+      }
 
-      checkweather(); 
-      
-    
-
-
-
+      btn.addEventListener("click", checkWeather);
     </script>
   </body>
 </html>
