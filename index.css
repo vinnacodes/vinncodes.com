@@ -82,6 +82,8 @@ body {
   .vname{
     width: max-content;
   }
+
+  
   .vname::after{
     content: '';
     width: 100%;
@@ -251,6 +253,9 @@ body {
   
     .contact-container {
       margin-top: 20px;
+
+      display: flex;
+      flex-direction: row;
     }
   
     .contacts {

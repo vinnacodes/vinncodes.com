@@ -1,153 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <style>
-      body {
-        background-color: rgb(0, 0, 0);
-        color: white;
-        font-family: Poppins, Geneva, Tahoma, sans-serif;
-        font-weight: 400;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
-      .card {
-        width: 300px;
-        border: 2px solid rgb(102, 100, 100);
-        padding: 20px;
-        border-radius: 15px;
-        background-image: linear-gradient(
-          to bottom right,
-          rgb(52, 204, 186),
-          rgb(67, 155, 134),
-          rgb(198, 197, 97)
-        );
-        box-shadow: 0 0 10px;
-      }
-      input {
-        width: 80%;
-        height: 30px;
-        border-radius: 10px;
-        padding: 0 10px;
-        background-color: rgb(244, 242, 240);
-        border: 1px solid rgb(9, 9, 10);
-        box-shadow: 0 0 7px rgb(95, 104, 164);
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin-right: 10px;
-      }
-      .search {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-      }
-      .temperature {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-      }
-      .temp {
-        font-size: 2.5em;
-      }
-      .details {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-      }
-      .humidity,
-      .wind {
-        text-align: center;
-      }
-      .wicon {
-        width: 60px;
-        height: 60px;
-        filter: drop-shadow(0 0 7px rgb(61, 60, 60));
-      }
-      #btn {
-        color: rgb(170, 202, 202);
-        cursor: pointer;
-      }
-      #btn:hover {
-        filter: drop-shadow(0 0 10px rgb(183, 198, 206));
-        color: rgb(231, 232, 234);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <div class="search">
-        <input
-          type="text"
-          name="area"
-          id="area"
-          placeholder="Enter a city name"
-        />
-        <i class="fas fa-magnifying-glass" id="btn"></i>
-      </div>
-      <div class="temperature">
-        <img
-          class="wicon"
-          src="https://openweathermap.org/img/wn/10d.png"
-          alt="weather-icon"
-        />
-        <h1 class="temp">--°C</h1>
-      </div>
-      <div class="details">
-        <div class="humidity">
-          <h1 class="hvalue">--%</h1>
-          <p>Humidity</p>
-        </div>
-        <div class="wind">
-          <h1 class="wvalue">-- mph</h1>
-          <p>Wind Speed</p>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
+      color: white;
+      font-family: Poppins, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .card {
+      width: 350px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      outline: none;
+      text-align: center;
+    }
+    #btn {
+      cursor: pointer;
+      font-size: 1.5em;
+      transition: transform 0.3s;
+    }
+    #btn:hover {
+      transform: scale(1.2);
+      color: #4ca1af;
+    }
+    .temperature, .details {
+      margin-top: 20px;
+    }
+    .temp {
+      font-size: 3em;
+      margin: 10px 0;
+    }
+    .humidity, .wind {
+      display: inline-block;
+      margin: 10px 20px;
+    }
+    .wicon {
+      width: 80px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <input type="text" id="area" placeholder="Enter a city name">
+    <i class="fas fa-search" id="btn"></i>
+  </div>
+  <div class="temperature">
+    <img class="wicon" src="https://openweathermap.org/img/wn/10d.png" alt="weather-icon">
+    <h1 class="temp">--°C</h1>
+  </div>
+  <div class="details">
+    <div class="humidity">
+      <h2 class="hvalue">--%</h2>
+      <p>Humidity</p>
     </div>
+    <div class="wind">
+      <h2 class="wvalue">-- mph</h2>
+      <p>Wind Speed</p>
+    </div>
+  </div>
+</div>
+<script>
+  const apikey = "0690dcc908669d58658121d42ecf6922";
+  const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
-    <script>
-      const apikey = "0690dcc908669d58658121d42ecf6922";
-      const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+  const btn = document.querySelector("#btn");
+  const temp = document.querySelector(".temp");
+  const humidity = document.querySelector(".hvalue");
+  const wind = document.querySelector(".wvalue");
+  const weatherIcon = document.querySelector(".wicon");
 
-      const btn = document.querySelector("#btn");
-      const temp = document.querySelector(".temp");
-      const humidity = document.querySelector(".hvalue");
-      const wind = document.querySelector(".wvalue");
-      const weatherIcon = document.querySelector(".wicon");
-
-      async function checkWeather() {
-        const city = document.querySelector("#area").value.trim();
-        if (city === "") {
-          alert("Please enter a city name!");
-          return;
-        }
-
-        try {
-          const response = await fetch(`${apiUrl}&appid=${apikey}&q=${city}`);
-          if (!response.ok) {
-            throw new Error("City not found!");
-          }
-          const data = await response.json();
-
-          // Update DOM with weather data
-          temp.innerHTML = Math.round(data.main.temp) + "°C";
-          humidity.innerHTML = data.main.humidity + "%";
-          wind.innerHTML = Math.round(data.wind.speed) + " mph";
-          weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-          weatherIcon.alt = data.weather[0].description;
-        } catch (error) {
-          alert(error.message);
-        }
+  async function checkWeather() {
+    const city = document.querySelector("#area").value.trim();
+    if (city === "") {
+      alert("Please enter a city name!");
+      return;
+    }
+    try {
+      const response = await fetch(`${apiUrl}&appid=${apikey}&q=${city}`);
+      if (!response.ok) {
+        throw new Error("City not found!");
       }
-
-      btn.addEventListener("click", checkWeather);
-    </script>
-  </body>
+      const data = await response.json();
+      temp.textContent = `${Math.round(data.main.temp)}°C`;
+      humidity.textContent = `${data.main.humidity}%`;
+      wind.textContent = `${Math.round(data.wind.speed)} mph`;
+      weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+      weatherIcon.alt = data.weather[0].description;
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+  btn.addEventListener("click", checkWeather);
+</script>
+</body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e6f7ff, #f4f4f9);
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    .note-container {
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    input[type="text"], select, button {
+      width: calc(100% - 20px);
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      display: block;
+      cursor: pointer;
+      background: #e6f7ff;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #111;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      margin: 5px 0;
+      background: #f4f4f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .category {
+      font-size: 0.9em;
+      font-style: italic;
+      color: #666;
+    }
+    li button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 3px 6px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    li button:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+<h1>Task Manager</h1>
+<div class="note-container">
+  <input type="text" id="noteInput" placeholder="Add a new note...">
+  <div style="display: flex; gap: 10px; margin-top: -10px;">
+    <select id="categorySelect" style="width: 70%;">
+      <option value="Personal">Personal</option>
+      <option value="Work">Work</option>
+      <option value="Ideas">Ideas</option>
+      <option value="Others">Others</option>
+    </select>
+    <button onclick="createNote()" style="width: 30%;">Create Note</button>
+  </div>
+  <ul id="noteList"></ul>
+</div>
+<script>
+  const noteInput = document.getElementById("noteInput");
+  const categorySelect = document.getElementById("categorySelect");
+  const noteList = document.getElementById("noteList");
+
+  function createNote() {
+    if (noteInput.value.trim() !== "") {
+      const note = noteInput.value.trim();
+      const category = categorySelect.value;
+
+      // Create new note element
+      const li = document.createElement("li");
+      li.innerHTML = `${note} <span class='category'>(${category})</span> <button onclick="deleteNote(this)">Delete</button>`;
+
+      // Append to note list
+      noteList.appendChild(li);
+
+      // Clear input
+      noteInput.value = "";
+    }
+  }
+
+  function deleteNote(button) {
+    const li = button.parentElement;
+    li.remove();
+  }
+</script>
+</body>
+</html>
