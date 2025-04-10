@@ -1,196 +1,177 @@
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+      
 
-/* Container for consistent width */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
+    ></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div>
+      <header>
+        <nav>
+          <!-- <img src="logo.jpg" alt="Logo" /> -->
+          <div class="container">
+            <nav>
+              <ul class="ham">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#work">My Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </nav>
+        <div class="header-text">
+          <p>FULL STACK DEVELOPER</p>
+          <h1 class="vname">
+            Hi, I'm <span>V</span>innarasu <br />
+          </h1>
+        </div>
+      </header>
 
-/* Header */
-header {
-    background: #f4f4f4;
-    text-align: center;
-    padding: 20px 0;
-}
+      <!-- About Section -->
+      <div id="about">
+        <div class="container">
+          <div class="row">
+            <div class="ab-col1">
+              <img src="images/vinna2.png"  class="glow-shadow" />
+            </div>
+            <div class="ab-col2">
+              <h1 class="subtitle">About Me</h1>
+              <p>
+              
+"Skilled Java Full Stack Developer with expertise in building robust, scalable web applications. Proficient in Java for back-end development, along with front-end technologies like HTML, CSS, and JavaScript. Experienced in integrating databases, APIs, and frameworks like Spring Boot to create end-to-end solutions."
+              </p>
+              <div class="tab-titles">
+                <p class="tab-links activ" onclick="opentab('skills')">Skills</p>
+                <p class="tab-links" onclick="opentab('education')">Education</p>
+              </div>
+              <div class="tab-contents active-tab" id="skills">
+                <ul>
+                  <li>
+                    <span> Front-End</span> <br />
+                    HTML, CSS, JavaScript, React
+                  </li>
+                  <li>
+                    <span> Back-End</span> <br />
+                    Java, SpringBoot, Microservices
+                  </li>
+                  <li>
+                    <span> Database</span> <br />
+                    MySQL, MongoDB, H2
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li><span>B.E (Electronics and Communication Engineering)</span> <br />2017-2021</li>
+                  <li><span>Higher Secondary Education</span> <br />2015-2017</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-nav ul.ham {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+      <!-- Work Section to do app -->
+      <div id="work">
+        <div class="container">
+          <h1 class="subtitle">My Work</h1>
+          <div class="work-center">
+            <div class="work-col1">
+              <h2>To-Do App</h2>
+              <p>
+                A simple To-Do application to manage your tasks effectively.
+              </p>
+              <iframe
+                src="/todo/to do.html do.html"
+                frameborder="0"
+                style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; background: white;"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
 
-nav ul.ham li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
+      <!-- -----weather app-- -->
+<div id="weather">
+      <div class="weather">
+        <h1> Weather App</h1>
+       <div class="container">
+<iframe src="weatherapp/weather app.html" frameborder="0"  style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; background: white;" ></iframe>
 
-.header-text {
-    margin-top: 20px;
-}
 
-.header-text p {
-    font-size: 1.2rem;
-    color: #666;
-}
 
-.vname {
-    font-size: 2rem;
-}
+       </div>
+</div>
 
-.vname span {
-    color: #007bff;
-}
 
-/* About Section */
-#about .row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+      </div>
 
-.ab-col1 img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-}
+      <!-- Contact Section -->
+      <!-- contact-section.html -->
+<div id="contact">
+  <div class="container">
+    <h1 class="subtitle">Contact Me</h1>
+    <div class="contact-container">
+      <ul class="contacts">
+        <li><strong>Email:</strong> <i class="fas fa-envelope"></i> <a href="mailto:vinnarasu2000@gmail.com">vinnarasu2000@gmail.com</a></li>
+        <li><strong>Phone:</strong> <i class="fas fa-phone"></i> <a href="tel:9360881096">9360881096</a></li>
+        <li><strong>GitHub:</strong> <i class="fab fa-github"></i> <a href="https://github.com/Vinnacodes" target="_blank">Vinnacodes</a></li>
+        <li><strong>LinkedIn:</strong>
+          <div class="linkedin-badge">
+            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="vinnarasu-p-2a4018179" data-version="v1">
+              <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/vinnarasu-p-2a4018179?trk=profile-badge">Vinnarasu P</a>
+            </div>
+          </div>
+        </li>
+        <li><strong>LeetCode:</strong> <i class="fas fa-code"></i> <a href="https://leetcode.com/u/vinnacodes/" target="_blank">leetcode.com/u/vinnacodes</a></li>
+        <li><strong>Website:</strong> <i class="fas fa-globe"></i> <a href="https://vinnacodes.github.io" target="_blank">vinnacodes.github.io</a></li>
+      </ul>
+    </div>
 
-.subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
 
-.tab-titles {
-    display: flex;
-    gap: 20px;
-    margin: 20px 0;
-}
+    <div class="others">
+      <div class="chatbot">
+        <div class="container">
+          <div class="box"></div>
+        </div>
 
-.tab-links {
-    cursor: pointer;
-    font-weight: bold;
-    color: #666;
-}
 
-.tab-links.activ {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-}
+      </div>
 
-.tab-contents {
-    display: none;
-}
 
-.tab-contents.active-tab {
-    display: block;
-}
 
-.tab-contents ul {
-    list-style: none;
-}
+    </div>
+  </div>
+</div>
+    </div>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script>
+      function opentab(tabName) {
+        const tabContents = document.querySelectorAll(".tab-contents");
+        const tabLinks = document.querySelectorAll(".tab-links");
 
-.tab-contents ul li {
-    margin: 10px 0;
-}
+        tabContents.forEach((tab) => (tab.style.display = "none"));
+        tabLinks.forEach((link) => link.classList.remove("activ"));
 
-.tab-contents ul li span {
-    font-weight: bold;
-    color: #007bff;
-}
+        document.getElementById(tabName).style.display = "block";
+        document.querySelector(`.tab-links[onclick="opentab('${tabName}')"]`).classList.add("activ");
+      }
 
-/* Work Section */
-.work-center {
-    text-align: center;
-}
-
-.work-col1 {
-    margin: 20px 0;
-}
-
-/* Weather Section */
-#weather {
-    text-align: center;
-}
-
-/* Contact Section */
-.contact-container ul {
-    list-style: none;
-    text-align: center;
-}
-
-.contacts li {
-    margin: 15px 0;
-}
-
-.contacts li i {
-    margin-right: 10px;
-    color: #007bff;
-}
-
-.contacts li a {
-    color: #333;
-    text-decoration: none;
-}
-
-/* Media Queries for Larger Screens */
-@media (min-width: 768px) {
-    /* Header */
-    nav ul.ham {
-        flex-direction: row;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    .vname {
-        font-size: 3rem;
-    }
-
-    /* About Section */
-    #about .row {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .ab-col1, .ab-col2 {
-        flex: 1;
-    }
-
-    /* Contact Section */
-    .contact-container ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        width: 80%;
-    }
-
-    .header-text p {
-        font-size: 1.5rem;
-    }
-
-    .vname {
-        font-size: 4rem;
-    }
-
-    .contact-container ul {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+      // Initialize to show the Skills tab
+      opentab("skills");
+    </script>
+  </body>
+</html>
