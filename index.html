@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
-        /* Reset default styles */
+        /* reset stuff */
         * {
             margin: 0;
             padding: 0;
@@ -15,14 +15,14 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; 
             line-height: 1.6;
-            color: #fff !important; /* Force white text */
-            background: #1a1a1a !important; /* Force black background */
+            color: #fff !important;  /* gotta force that white text */
+            background: #1a1a1a !important; /* black bg all the way */
             overflow-x: hidden;
         }
 
-        /* Container */
+        /* container for keeping things neat */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -30,15 +30,12 @@
             padding: 20px 0;
         }
 
-        /* Header */
+        /* header - no sticky nonsense now */
         header {
-            background: #000 !important; /* Force black header */
+            background: #000 !important; /* pure black header */
             text-align: center;
             padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3); /* red-tinted shadow */
         }
 
         nav ul.ham {
@@ -46,7 +43,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* smooth moves */
         }
 
         nav ul.ham li a {
@@ -58,8 +55,8 @@
         }
 
         nav ul.ham li a:hover {
-            color: #ff0000; /* Red on hover */
-            transform: scale(1.1);
+            color: #ff0000; /* red on hover */
+            transform: scale(1.1); /* little pop */
         }
 
         .header-text {
@@ -69,7 +66,7 @@
 
         .header-text p {
             font-size: 1.2rem;
-            color: #ff0000; /* Red text */
+            color: #ff0000; /* red job title */
         }
 
         .vname {
@@ -78,13 +75,13 @@
         }
 
         .vname span {
-            color: #ff0000; /* Red highlight */
+            color: #ff0000; /* red V */
         }
 
-        /* About Section */
+        /* about section */
         #about {
             padding: 40px 0;
-            background: #222; /* Slightly lighter black */
+            background: #222; /* lil lighter black */
         }
 
         #about .row {
@@ -98,7 +95,7 @@
             width: 100%;
             max-width: 300px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); /* Red glow */
+            box-shadow: 0 0 15px rgba(255,0,0,0.5); /* red glow */
             transition: transform 0.5s ease;
         }
 
@@ -109,7 +106,7 @@
         .subtitle {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            color: #ff0000; /* Red subtitle */
+            color: #ff0000; /* red titles */
         }
 
         .tab-titles {
@@ -147,15 +144,15 @@
 
         .tab-contents ul li {
             margin: 10px 0;
-            color: #ccc;
+            color: #ccc; /* softer white */
         }
 
         .tab-contents ul li span {
             font-weight: bold;
-            color: #ff0000; /* Red highlight */
+            color: #ff0000;
         }
 
-        /* Work Section */
+        /* work section */
         #work {
             padding: 40px 0;
         }
@@ -177,7 +174,7 @@
             transform: scale(1.02);
         }
 
-        /* Weather Section */
+        /* weather section */
         #weather {
             text-align: center;
             padding: 40px 0;
@@ -192,7 +189,7 @@
             transform: scale(1.02);
         }
 
-        /* Contact Section */
+        /* contact section */
         #contact {
             padding: 40px 0;
         }
@@ -209,12 +206,12 @@
         }
 
         .contacts li:hover {
-            transform: translateX(10px);
+            transform: translateX(10px); /* slide right on hover */
         }
 
         .contacts li i {
             margin-right: 10px;
-            color: #ff0000; /* Red icons */
+            color: #ff0000; /* red icons */
         }
 
         .contacts li a {
@@ -224,10 +221,10 @@
         }
 
         .contacts li a:hover {
-            color: #ff0000; /* Red on hover */
+            color: #ff0000;
         }
 
-        /* Animations */
+        /* some cool animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -243,27 +240,19 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Media Queries */
+        /* media queries for bigger screens */
         @media (min-width: 768px) {
             nav ul.ham {
                 flex-direction: row;
                 justify-content: center;
                 gap: 30px;
             }
-
-            .vname {
-                font-size: 3rem;
-            }
-
+            .vname { font-size: 3rem; }
             #about .row {
                 flex-direction: row;
                 align-items: center;
             }
-
-            .ab-col1, .ab-col2 {
-                flex: 1;
-            }
-
+            .ab-col1, .ab-col2 { flex: 1; }
             .contact-container ul {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -272,26 +261,15 @@
         }
 
         @media (min-width: 1024px) {
-            .container {
-                width: 80%;
-            }
-
-            .header-text p {
-                font-size: 1.5rem;
-            }
-
-            .vname {
-                font-size: 4rem;
-            }
-
-            .contact-container ul {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .container { width: 80%; }
+            .header-text p { font-size: 1.5rem; }
+            .vname { font-size: 4rem; }
+            .contact-container ul { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- header, scrolls away now -->
     <header>
         <nav class="container">
             <ul class="ham">
@@ -307,7 +285,7 @@
         </div>
     </header>
 
-    <!-- About Section -->
+    <!-- about me section -->
     <section id="about">
         <div class="container">
             <div class="row">
@@ -341,7 +319,7 @@
         </div>
     </section>
 
-    <!-- Work Section -->
+    <!-- my work section -->
     <section id="work">
         <div class="container">
             <h1 class="subtitle">My Work</h1>
@@ -349,48 +327,40 @@
                 <div class="work-col1">
                     <h2>To-Do App</h2>
                     <p>A simple To-Do application to manage your tasks effectively.</p>
-                    <iframe src="to do.html" frameborder="0" style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; background: white;"></iframe>
+                    <iframe src="/todo/to-do.html" frameborder="0" style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; background: white;"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Weather App Section -->
-       <section id="weather">
+    <!-- weather app section -->
+    <section id="weather">
         <div class="container">
             <h1 class="subtitle">Weather App</h1>
-            <iframe   src="weather app.html" frameborder="0" style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; background: white;"></iframe>
+            <iframe src="weatherapp/weather-app.html" frameborder="0" style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; background: white;"></iframe>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- contact section -->
     <section id="contact">
         <div class="container">
             <h1 class="subtitle">Contact Me</h1>
             <div class="contact-container">
                 <ul class="contacts">
                     <li><strong>Email:</strong> <i class="fas fa-envelope"></i> <a href="mailto:vinnarasu2000@gmail.com">vinnarasu2000@gmail.com</a></li>
-                     <li><strong>Phone:</strong> <i class="fas fa-phone"></i> <a href="tel:9360881096">9360881096</a></li>
+                    <li><strong>Phone:</strong> <i class="fas fa-phone"></i> <a href="tel:9360881096">9360881096</a></li>
                     <li><strong>GitHub:</strong> <i class="fab fa-github"></i> <a href="https://github.com/Vinnacodes" target="_blank">Vinnacodes</a></li>
-                   
-                   
-                     <li><strong>LinkedIn:</strong> <i class="fab fa-linkedin"></i> <a href="https://in.linkedin.com/in/vinnarasu-p-2a4018179" target="_blank">Vinnarasu P</a></li>
+                    <li><strong>LinkedIn:</strong> <i class="fab fa-linkedin"></i> <a href="https://in.linkedin.com/in/vinnarasu-p-2a4018179" target="_blank">Vinnarasu P</a></li>
                     <li><strong>LeetCode:</strong> <i class="fas fa-code"></i> <a href="https://leetcode.com/u/vinnacodes/" target="_blank">leetcode.com/u/vinnacodes</a></li>
                     <li><strong>Website:</strong> <i class="fas fa-globe"></i> <a href="https://vinnacodes.github.io" target="_blank">vinnacodes.github.io</a></li>
                 </ul>
             </div>
         </div>
-
-
-
     </section>
 
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     <script>
-
-
-
-
+        // tab switching stuff
         function opentab(tabName) {
             const tabContents = document.querySelectorAll(".tab-contents");
             const tabLinks = document.querySelectorAll(".tab-links");
