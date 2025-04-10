@@ -17,10 +17,12 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #fff;
+            background: #1a1a1a; /* Dark black background */
+            overflow-x: hidden;
         }
 
-        /* Container for consistent width */
+        /* Container */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -30,57 +32,84 @@
 
         /* Header */
         header {
-            background: #f4f4f4;
+            background: #000;
             text-align: center;
             padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
         }
 
         nav ul.ham {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
+            transition: all 0.3s ease;
         }
 
         nav ul.ham li a {
             text-decoration: none;
-            color: #333;
+            color: #fff;
             font-weight: bold;
+            padding: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul.ham li a:hover {
+            color: #ff0000; /* Red on hover */
+            transform: scale(1.1);
         }
 
         .header-text {
             margin-top: 20px;
+            animation: fadeIn 1s ease-in;
         }
 
         .header-text p {
             font-size: 1.2rem;
-            color: #666;
+            color: #ff0000; /* Red text */
         }
 
         .vname {
             font-size: 2rem;
+            animation: slideIn 1s ease-out;
         }
 
         .vname span {
-            color: #007bff;
+            color: #ff0000; /* Red highlight */
         }
 
         /* About Section */
+        #about {
+            padding: 40px 0;
+            background: #222; /* Slightly lighter black */
+        }
+
         #about .row {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            animation: fadeInUp 1s ease-out;
         }
 
         .ab-col1 img {
             width: 100%;
             max-width: 300px;
             border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); /* Red glow */
+            transition: transform 0.5s ease;
+        }
+
+        .ab-col1 img:hover {
+            transform: scale(1.05);
         }
 
         .subtitle {
             font-size: 1.8rem;
             margin-bottom: 15px;
+            color: #ff0000; /* Red subtitle */
         }
 
         .tab-titles {
@@ -92,16 +121,20 @@
         .tab-links {
             cursor: pointer;
             font-weight: bold;
-            color: #666;
+            color: #fff;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
         }
 
-        .tab-links.activ {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
+        .tab-links:hover, .tab-links.activ {
+            color: #ff0000;
+            border-bottom: 2px solid #ff0000;
+            transform: translateY(-2px);
         }
 
         .tab-contents {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         .tab-contents.active-tab {
@@ -114,50 +147,104 @@
 
         .tab-contents ul li {
             margin: 10px 0;
+            color: #ccc;
         }
 
         .tab-contents ul li span {
             font-weight: bold;
-            color: #007bff;
+            color: #ff0000; /* Red highlight */
         }
 
         /* Work Section */
+        #work {
+            padding: 40px 0;
+        }
+
         .work-center {
             text-align: center;
         }
 
         .work-col1 {
             margin: 20px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .work-col1 iframe {
+            transition: transform 0.5s ease;
+        }
+
+        .work-col1:hover iframe {
+            transform: scale(1.02);
         }
 
         /* Weather Section */
         #weather {
             text-align: center;
+            padding: 40px 0;
+            background: #222;
+        }
+
+        #weather iframe {
+            transition: transform 0.5s ease;
+        }
+
+        #weather:hover iframe {
+            transform: scale(1.02);
         }
 
         /* Contact Section */
+        #contact {
+            padding: 40px 0;
+        }
+
         .contact-container ul {
             list-style: none;
             text-align: center;
+            animation: fadeInUp 1s ease-out;
         }
 
         .contacts li {
             margin: 15px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .contacts li:hover {
+            transform: translateX(10px);
         }
 
         .contacts li i {
             margin-right: 10px;
-            color: #007bff;
+            color: #ff0000; /* Red icons */
         }
 
         .contacts li a {
-            color: #333;
+            color: #fff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        /* Media Queries for Larger Screens */
+        .contacts li a:hover {
+            color: #ff0000; /* Red on hover */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Media Queries */
         @media (min-width: 768px) {
-            /* Header */
             nav ul.ham {
                 flex-direction: row;
                 justify-content: center;
@@ -168,7 +255,6 @@
                 font-size: 3rem;
             }
 
-            /* About Section */
             #about .row {
                 flex-direction: row;
                 align-items: center;
@@ -178,7 +264,6 @@
                 flex: 1;
             }
 
-            /* Contact Section */
             .contact-container ul {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -227,7 +312,7 @@
         <div class="container">
             <div class="row">
                 <div class="ab-col1">
-                    <img src="images/vinna2.png" class="glow-shadow" alt="Vinnarasu" />
+                    <img src="images/vinna2.png" alt="Vinnarasu" />
                 </div>
                 <div class="ab-col2">
                     <h1 class="subtitle">About Me</h1>
